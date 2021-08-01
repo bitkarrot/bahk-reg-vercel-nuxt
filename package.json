@@ -1,14 +1,31 @@
 {
-  "private": true,
-  "license": "MIT",
-  "scripts": {
-    "dev": "nuxt --port $PORT",
-    "local-dev": "vercel dev -A vercel.dev.json"
-  },
-  "dependencies": {
-    "access-log": "^0.4.1"
-  },
-  "devDependencies": {
-    "nuxt-edge": "latest"
-  }
+    "private": true,
+    "license": "MIT",
+    "scripts": {
+        "dev": "nuxt --port $PORT",
+        "local-dev": "vercel dev -A vercel.dev.json"
+    },
+    "dependencies": {
+        "@nuxtjs/axios": "latest",
+        "access-log": "^0.4.1",
+        "bootstrap-vue": "^2.21.2",
+        "dotenv": "^10.0.0",
+        "formidable": "^1.2.2",
+        "glob-parent": "^5.1.2",
+        "google-auth-library": "^7.1.2",
+        "googleapis": "^78.0.0",
+        "jquery": "^3.6.0",
+        "normalize-url": "^4.5.1",
+        "nuxt": "^2.0.0",
+        "popper": "^1.0.1",
+        "webpack": "latest"
+    },
+    "devDependencies": {
+        "nuxt-edge": "latest",
+        "@nuxtjs/eslint-config": "^5.0.0",
+        "@nuxtjs/eslint-module": "^3.0.2",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^7.20.0",
+        "eslint-plugin-nuxt": "^2.0.0"
+    }
 }

@@ -12,11 +12,5 @@ export default {
         base: '/'
     },
     components: true,
-    buildModules: [
-        '@nuxtjs/eslint-module'
-    ],
-    eslint: {
-        fix: true
-    },
     modules: ['bootstrap-vue/nuxt', '@nuxtjs/axios'],
 }

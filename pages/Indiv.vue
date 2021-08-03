@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Nav />
+<!--    <Nav /> -->
     <b-container
       id="contact"
       fluid

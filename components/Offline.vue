@@ -6,7 +6,7 @@
         order-md="2"
         class="d-flex align-items-center justify-content-center"
       >
-        <b-img fluid src="https://www.bitcoin.org.hk/images/bahk-logo-big-white.svg" alt="John Doe" class="img" />
+        <b-img fluid src="https://www.bitcoin.org.hk/images/bahk-logo-big-white.svg" alt="Bitcoin HK" class="img" />
       </b-col>
 
       <b-col md="8" order-md="1">

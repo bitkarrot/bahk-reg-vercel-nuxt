@@ -1,17 +1,17 @@
 <template>
   <div>
-    <Nav />
+   <!-- <Nav /> -->
     <About />
   </div>
 </template>
 
 <script>
-import Nav from '~/components/Nav.vue'
+// import Nav from '~/components/Nav.vue'
 import About from '~/components/About.vue'
 
 export default {
   components: {
-    Nav,
+    // Nav,
     About
   }
 }

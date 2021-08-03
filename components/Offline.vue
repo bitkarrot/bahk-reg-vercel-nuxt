@@ -17,8 +17,8 @@
 
           <p class="lead">
             It looks like our payment server is offline.
-            If the error continues, please contact our staff at
-            info [at] bitcoin.org.hk
+            If the error continues, please contact our staff at <br/>
+            <strong> info [at] bitcoin.org.hk </strong>
           </p>
         </b-container>
       </b-col>

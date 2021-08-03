@@ -10,7 +10,11 @@
       <b-container fluid class="content py-3 mh-100">
         <b-container>
           <b-container fluid class="content py-3 mh-100">
-            <center><h2>Individual Membership Application</h2></center>
+            <center>
+              <a href="https://bitcoin.org.hk">
+               <b-img fluid src="https://www.bitcoin.org.hk/images/bahk-logo-big-white.svg" alt="Bitcoin HK" class="img" />
+              </a>
+              <h2>Individual Membership Application</h2></center>
           </b-container>
           <b-form v-if="show" @submit="onSubmit" @reset="onReset">
             <b-form-group

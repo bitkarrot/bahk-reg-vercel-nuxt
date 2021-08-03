@@ -133,7 +133,7 @@
               Reset
             </b-button>
           </b-form>
-          <b-card class="mt-3" header="Form Data Result">
+          <b-card class="mt-3" header="Your Form Data to be Submitted:">
             <pre class="m-0">{{ form }}</pre>
           </b-card>
         </b-container>

@@ -7,10 +7,15 @@ export function getbtcpayload(fields) {
     const currency = 'BTC'
         //const expiryDate24 = new Date().getTime() + (24 * 60 * 60 * 1000);
     const email = fields.email
+
     const baseDesc = "<b>Bitcoin Association of Hong Kong</b><br/> <b>Contact:</b> info@bitcoin.org.hk <br/><br/>"
 
     if (fields.type === 'individual') {
-        let description = baseDesc + "<b>New Membership for: </b>" + fields.name + "<br><b> Email: </b>" + fields.email + " </b>";
+        let description = baseDesc + "<b>New Membership for: </b>" + fields.name + "<br><b> Email: </b>" + fields.email + " </b><br/>";
+        let other_data = "</br/>Chinese name: " + fields.chinese + "<br>Physically present: " + fields.physical + "<br>Ok to publish: " + fields.publish + "<br>Telegram: " + fields.telegram + "<br>Keybase: " + fields.keybase
+
+        description = description + "<br>" + other_data;
+
         /* PAYLOAD to btcpay create new payment request */
         const payload = {
                 amount: pricing.individual,

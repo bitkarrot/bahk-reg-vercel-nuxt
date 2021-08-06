@@ -7,11 +7,6 @@ const formidable = require('formidable')
 const dotenv = require('dotenv')
 dotenv.config({ path: './.env' })
 
-const { google } = require('googleapis')
-const SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-const sheetID = '1IMG9vZhrJHh9be5KVkXfXHuuIYqafbX2r6sdYlFHWUE'
-const keyfile = 'credentials.json'
-
 ////////// setup constants & btcpay url //////////
 const base_url = process.env.VUE_APP_BASE_URL
 const apikey = process.env.VUE_APP_APIKEY
@@ -39,6 +34,10 @@ console.log("posting url:", btcpayurl)
  */
 app.post("/api/sheets", async(req, res) => {
     try {
+        const { google } = require('googleapis')
+        const SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
+        const sheetID = '1IMG9vZhrJHh9be5KVkXfXHuuIYqafbX2r6sdYlFHWUE'
+        const keyfile = 'credentials.json'
         const auth = new google.auth.GoogleAuth({
             keyFile: keyfile,
             scopes: SCOPES
@@ -75,7 +74,7 @@ app.post("/api/sheets", async(req, res) => {
                         ],
                     },
                 });
-                // console.log('google sheets result', result);
+                console.log('google sheets result', result);
             } else if (fields.type === 'organization') {
                 const result = googleSheets.spreadsheets.values.append({
                     auth: auth,
@@ -97,7 +96,7 @@ app.post("/api/sheets", async(req, res) => {
                         ],
                     },
                 });
-                // console.log('google sheets result', result);
+                console.log('google sheets result', result);
             }
 
             const payload = getbtcpayload(fields)
@@ -118,7 +117,8 @@ app.post("/api/sheets", async(req, res) => {
         })
 
         const btcpaylink = "https://btcpay.bitcoin.org.hk";
-        res.send(btcpaylink);
+        res.json({ message: btcpaylink })
+            // res.send(btcpaylink);
 
     } catch (error) {
         console.error(error);

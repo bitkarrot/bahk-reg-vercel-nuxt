@@ -179,7 +179,7 @@ export default {
       event.preventDefault()
       //alert(JSON.stringify(this.form))
       
-      const btcpaylink = await axios.post('/sheets', this.form).then(
+      const btcpaylink = await axios.post('/api/sheets', this.form).then(
         function (response) {
           // Handle success
           return response.data

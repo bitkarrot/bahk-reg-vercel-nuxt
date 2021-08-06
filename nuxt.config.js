@@ -21,5 +21,5 @@ export default {
         base: '/'
     },
     components: true,
-    modules: ['bootstrap-vue/nuxt', '@nuxtjs/axios'],
+    modules: ['bootstrap-vue/nuxt'],
 }

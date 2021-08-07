@@ -2,7 +2,6 @@ import { getbtcpayload } from './payload.js';
 
 const express = require("express");
 const app = express()
-const cors = require('cors')
 
 const axios = require('axios')
 const formidable = require('formidable')
@@ -12,6 +11,10 @@ dotenv.config({ path: './.env' })
 const base_url = process.env.VUE_APP_BASE_URL
 const apikey = process.env.VUE_APP_APIKEY
 const storeId = process.env.VUE_APP_STORE_ID
+console.log('base url: ', base_url)
+console.log('api key:', apikey)
+console.log('store id: ', storeId)
+
 const headers = {
     Authorization: 'token ' + apikey,
     'Content-Type': 'application/json'
@@ -20,8 +23,8 @@ const btcpayurl = base_url + '/api/v1/stores/' + storeId + '/payment-requests'
 const backuplink = "https://btcpay.bitcoin.org.hk/apps/3u6zPjD3b9TxdP7kf7SNHTtvVFr3/pos"
     // original POS btcpay membership store. 
 
-
-app.use(cors())
+//const cors = require('cors')
+//app.use(cors())
 
 /**
  * POST entries from Form

@@ -1,7 +1,7 @@
 import { getbtcpayload } from './payload.js';
 
 const express = require("express");
-const app = express()
+const router = express.Router();
 
 const axios = require('axios')
 const formidable = require('formidable')
@@ -31,7 +31,7 @@ const backuplink = "https://btcpay.bitcoin.org.hk/apps/3u6zPjD3b9TxdP7kf7SNHTtvV
  *
  * @return btcpay link | empty.
  */
-app.post("/api/indiv", async(req, res) => {
+router.post("/api/indiv", async(req, res) => {
     try {
 
         const form = new formidable.IncomingForm({ multiples: true });
@@ -66,4 +66,4 @@ app.post("/api/indiv", async(req, res) => {
     }
 });
 
-module.exports = app;
+module.exports = router;

@@ -110,3 +110,5 @@ _nuxt
 # ssl 
 cert.pem
 key.pem.env-bak
+
+backup-stash

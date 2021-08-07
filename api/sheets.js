@@ -2,10 +2,11 @@ import { getbtcpayload } from './payload.js';
 
 const express = require("express");
 const app = express()
-const axios = require('axios')
 const formidable = require('formidable')
 const dotenv = require('dotenv')
 dotenv.config({ path: './.env' })
+
+//const axios = require('axios')
 
 ////////// setup constants & btcpay url //////////
 const base_url = process.env.VUE_APP_BASE_URL
@@ -26,6 +27,10 @@ const btcpayurl = base_url + '/api/v1/stores/' + storeId + '/payment-requests'
 console.log("posting url:", btcpayurl)
     ////////// setup constants & btcpay url //////////
 
+const backuplink = "https://btcpay.bitcoin.org.hk/apps/3u6zPjD3b9TxdP7kf7SNHTtvVFr3/pos"
+
+const cors = require('cors')
+app.use(cors())
 
 /**
  * POST entries from Form
@@ -115,10 +120,7 @@ app.post("/api/sheets", async(req, res) => {
                 */
 
         })
-
-        const btcpaylink = "https://btcpay.bitcoin.org.hk";
-        res.json({ message: btcpaylink })
-            // res.send(btcpaylink);
+        res.send(backuplink);
 
     } catch (error) {
         console.error(error);

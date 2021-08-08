@@ -5,8 +5,6 @@ const express = require("express");
 const router = express.Router();
 const axios = require('axios')
 const formidable = require('formidable')
-const dotenv = require('dotenv')
-dotenv.config({ path: './.env' })
 
 //console.log('base url: ', base_url)
 //console.log('api key:', apikey)

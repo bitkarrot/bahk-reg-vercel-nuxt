@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const fs = require('fs');
-import { google, SCOPES, sheetID, keyfile } from './constants.js';
+import { google, SCOPES, sheetID, keyfile } from './googleconstants.js';
 
 /**
  * GET entries from spreadsheet

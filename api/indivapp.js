@@ -1,13 +1,11 @@
 import { getbtcpayload } from './payload.js';
-import { pushdata } from './pushdata.js';
 import { base_url, headers, btcpayurl, backuplink, apikey, storeId } from './constants.js';
+//import { pushdata } from './pushdata.js';
 
 const express = require("express");
 const router = express.Router();
 const axios = require('axios')
 const formidable = require('formidable')
-const dotenv = require('dotenv')
-dotenv.config({ path: './.env' })
 
 //console.log('base url: ', base_url)
 //console.log('api key:', apikey)
@@ -23,8 +21,8 @@ router.post("/api/indivapp", async(req, res) => {
 
         const form = new formidable.IncomingForm({ multiples: true });
         form.parse(req, async(err, fields, files) => {
-            const currentTime = pushdata(fields)
-            console.log('Indiv: current time returned by push to sheets: ', currentTime)
+            // const currentTime = pushdata(fields)
+            // console.log('Indiv: current time returned by push to sheets: ', currentTime)
 
             const payload = getbtcpayload(fields)
             let base_link = base_url + "/payment-requests/"

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const fs = require('fs');
+import { google, SCOPES, sheetID, keyfile } from './constants.js';
 
 /**
  * GET entries from spreadsheet
@@ -8,14 +9,7 @@ const fs = require('fs');
  * @return product list | empty.
  */
 router.get("/api/entries", async(req, res) => {
-    //    const dotenv = require('dotenv')
-    //    dotenv.config({ path: './.env' })
-
-    const { google } = require('googleapis')
-    const SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-    const sheetID = '1IMG9vZhrJHh9be5KVkXfXHuuIYqafbX2r6sdYlFHWUE'
     const sheet1 = 'Individuals'
-    const keyfile = 'credentials.json'
 
     try {
         const auth = new google.auth.GoogleAuth({

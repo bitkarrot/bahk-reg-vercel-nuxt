@@ -29,9 +29,6 @@ console.log("posting url:", btcpayurl)
 
 const backuplink = "https://btcpay.bitcoin.org.hk/apps/3u6zPjD3b9TxdP7kf7SNHTtvVFr3/pos"
 
-const cors = require('cors')
-app.use(cors())
-
 /**
  * POST entries from Form
  *
@@ -50,62 +47,62 @@ app.post("/api/sheets", async(req, res) => {
         const client = auth.getClient()
 
         const form = new formidable.IncomingForm({ multiples: true });
-        form.parse(req, (err, fields, files) => {
-            if (err) {
-                console.error('Error', err)
-                throw err
-            }
-            const currentTime = new Date().toUTCString()
-            const googleSheets = google.sheets({ version: 'v4', auth: client })
-            if (fields.type === 'individual') {
-                const result = googleSheets.spreadsheets.values.append({
-                    auth: auth,
-                    spreadsheetId: sheetID,
-                    range: "Individuals!A:I",
-                    valueInputOption: "USER_ENTERED",
-                    resource: {
-                        values: [
-                            [
-                                currentTime,
-                                fields.name,
-                                fields.chinese,
-                                fields.email,
-                                fields.physical,
-                                fields.publish,
-                                fields.telegram,
-                                fields.keybase,
-                                '',
-                            ],
-                        ],
-                    },
-                });
-                console.log('google sheets result', result);
-            } else if (fields.type === 'organization') {
-                const result = googleSheets.spreadsheets.values.append({
-                    auth: auth,
-                    spreadsheetId: sheetID,
-                    range: "Organizations!A:H",
-                    valueInputOption: "USER_ENTERED",
-                    resource: {
-                        values: [
-                            [
-                                currentTime,
-                                fields.orgname,
-                                fields.chinese,
-                                fields.name,
-                                fields.email,
-                                fields.publish,
-                                fields.url,
-                                '',
-                            ],
-                        ],
-                    },
-                });
-                console.log('google sheets result', result);
-            }
+        form.parse(req, async(err, fields, files) => {
+                if (err) {
+                    console.error('Error', err)
+                    throw err
+                }
+                const currentTime = new Date().toUTCString()
+                const googleSheets = google.sheets({ version: 'v4', auth: client })
+                console.log('currentTime', currentTime)
 
-            const payload = getbtcpayload(fields)
-            console.log('payload', payload)
+                if (fields.type === 'individual') {
+                    const result = googleSheets.spreadsheets.values.append({
+                        auth: auth,
+                        spreadsheetId: sheetID,
+                        range: "Individuals!A:H",
+                        valueInputOption: "USER_ENTERED",
+                        resource: {
+                            values: [
+                                [
+                                    currentTime,
+                                    fields.name,
+                                    fields.chinese,
+                                    fields.email,
+                                    fields.physical,
+                                    fields.publish,
+                                    fields.telegram,
+                                    fields.keybase,
+                                ],
+                            ],
+                        },
+                    });
+                    console.log('google sheets result', result);
+                } else if (fields.type === 'organization') {
+                    const result = googleSheets.spreadsheets.values.append({
+                        auth: auth,
+                        spreadsheetId: sheetID,
+                        range: "Organizations!A:G",
+                        valueInputOption: "USER_ENTERED",
+                        resource: {
+                            values: [
+                                [
+                                    currentTime,
+                                    fields.orgname,
+                                    fields.chinese,
+                                    fields.name,
+                                    fields.email,
+                                    fields.publish,
+                                    fields.url,
+                                ],
+                            ],
+                        },
+                    });
+                    console.log('google sheets result', result);
+                }
+
+                //               const payload = getbtcpayload(fields)
+                //                console.log('payload', payload)
                 // Error: socket hang up
                 /*
                 const ares = axios.post(btcpayurl, payload, { headers }).then(
@@ -119,8 +116,8 @@ app.post("/api/sheets", async(req, res) => {
                 console.log('axios response', ares);
                 */
 
-        })
-        res.send(backuplink);
+            })
+            //        res.send(backuplink);
 
     } catch (error) {
         console.error(error);

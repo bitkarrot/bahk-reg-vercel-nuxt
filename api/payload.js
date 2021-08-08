@@ -32,7 +32,10 @@ export function getbtcpayload(fields) {
         return payload
 
     } else if (fields.type === 'organization') {
-        description = baseDesc + "<b>New Membership for: </b> " + fields.orgname + "<br><b>Contact Person: </b>" + fields.name + "<br><b> Email:</b> " + fields.email + " </b>";
+        let description = baseDesc + "<b>New Membership for: </b> " + fields.orgname + "<br><b>Contact Person: </b>" + fields.name + "<br><b> Email:</b> " + fields.email + " </b>";
+        let other_data = "</br/>Chinese name: " + fields.chinese + "<br>Ok to publish membership: " + fields.publish + "<br>link to corporate logo: " + fields.url
+        description = description + "<br>" + other_data
+
         const payload = {
                 amount: pricing.org,
                 title: title.org,

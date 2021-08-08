@@ -99,8 +99,6 @@ sw.*
 .envpackage-lock.json
 .env
 
-new-creds.json
-credentials.json
 yarn.lock
 
 test.js

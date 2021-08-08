@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const fs = require('fs');
 
 /**
  * GET entries from spreadsheet
@@ -7,14 +8,14 @@ const router = express.Router();
  * @return product list | empty.
  */
 router.get("/api/entries", async(req, res) => {
-    const dotenv = require('dotenv')
-    dotenv.config({ path: './.env' })
+    //    const dotenv = require('dotenv')
+    //    dotenv.config({ path: './.env' })
 
     const { google } = require('googleapis')
     const SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
     const sheetID = '1IMG9vZhrJHh9be5KVkXfXHuuIYqafbX2r6sdYlFHWUE'
     const sheet1 = 'Individuals'
-    const keyfile = 'credentials.json'
+    const keyfile = './api/credentials.json'
 
     try {
         const auth = new google.auth.GoogleAuth({

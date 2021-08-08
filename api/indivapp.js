@@ -1,4 +1,5 @@
 import { getbtcpayload } from './payload.js';
+import { pushdata } from './pushdata.js';
 import { base_url, headers, btcpayurl, backuplink, apikey, storeId } from './constants.js';
 
 const express = require("express");
@@ -22,6 +23,9 @@ router.post("/api/indivapp", async(req, res) => {
 
         const form = new formidable.IncomingForm({ multiples: true });
         form.parse(req, async(err, fields, files) => {
+            const currentTime = pushdata(fields)
+            console.log('current time returned by push to sheets: ', currentTime)
+
             const payload = getbtcpayload(fields)
             let base_link = base_url + "/payment-requests/"
             console.log('getting axios post....')

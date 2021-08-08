@@ -15,7 +15,7 @@ router.get("/api/entries", async(req, res) => {
     const SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
     const sheetID = '1IMG9vZhrJHh9be5KVkXfXHuuIYqafbX2r6sdYlFHWUE'
     const sheet1 = 'Individuals'
-    const keyfile = './api/credentials.json'
+    const keyfile = 'credentials.json'
 
     try {
         const auth = new google.auth.GoogleAuth({

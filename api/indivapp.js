@@ -23,8 +23,8 @@ router.post("/api/indivapp", async(req, res) => {
 
         const form = new formidable.IncomingForm({ multiples: true });
         form.parse(req, async(err, fields, files) => {
-            //            const currentTime = pushdata(fields)
-            //            console.log('Indiv: current time returned by push to sheets: ', currentTime)
+            const currentTime = pushdata(fields)
+            console.log('Indiv: current time returned by push to sheets: ', currentTime)
 
             const payload = getbtcpayload(fields)
             let base_link = base_url + "/payment-requests/"

@@ -11,8 +11,8 @@ export function getbtcpayload(fields) {
     const baseDesc = "<b>Bitcoin Association of Hong Kong</b><br/> <b>Contact:</b> info@bitcoin.org.hk <br/><br/>"
 
     if (fields.type === 'individual') {
-        let description = baseDesc + "<b>New Membership for: </b>" + fields.name + "<br><b> Email: </b>" + fields.email + " </b><br/>";
-        let other_data = "</br/>Chinese name: " + fields.chinese + "<br>Physically present: " + fields.physical + "<br>Ok to publish: " + fields.publish + "<br>Telegram: " + fields.telegram + "<br>Keybase: " + fields.keybase
+        let description = baseDesc + "<br><b>New Membership for: </b> <br> <b>Name:</b>" + fields.name + "<br><b> Email: </b>" + fields.email;
+        let other_data = "<b>Chinese name: </b> " + fields.chinese + "<br><b>Physically present:</b> " + fields.physical + "<br><b>Ok to publish: </b> " + fields.publish + "<br> <b>Telegram:</b> " + fields.telegram + "<br> <b>Keybase: </b>" + fields.keybase + "<br>"
 
         description = description + "<br>" + other_data;
 
@@ -32,8 +32,8 @@ export function getbtcpayload(fields) {
         return payload
 
     } else if (fields.type === 'organization') {
-        let description = baseDesc + "<b>New Membership for: </b> " + fields.orgname + "<br><b>Contact Person: </b>" + fields.name + "<br><b> Email:</b> " + fields.email + " </b>";
-        let other_data = "</br/>Chinese name: " + fields.chinese + "<br>Ok to publish membership: " + fields.publish + "<br>link to corporate logo: " + fields.url
+        let description = baseDesc + "<br><b>New Membership for: </b> <br> <b>Name:</b>" + fields.orgname + "<br><b>Contact Person: </b>" + fields.name + "<br><b> Email:</b> " + fields.email;
+        let other_data = "<b>Chinese name: </b>" + fields.chinese + "<br> <b>Ok to publish membership: </b>" + fields.publish + "<br><b>Link to corporate logo: </b>" + fields.url + "<br/>"
         description = description + "<br>" + other_data
 
         const payload = {

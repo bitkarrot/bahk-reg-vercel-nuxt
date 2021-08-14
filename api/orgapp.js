@@ -6,10 +6,6 @@ const router = express.Router();
 const axios = require('axios')
 const formidable = require('formidable')
 
-//console.log('base url: ', base_url)
-//console.log('api key:', apikey)
-//console.log('store id: ', storeId)
-
 /**
  * POST entries from Form
  *
@@ -36,7 +32,8 @@ router.post("/api/orgapp", async(req, res) => {
                 }
             ).catch(function(error) {
                 console.log('axios error, send backuplink ', error)
-                res.send(backuplink)
+                return res.status(500).send("Server error");
+                //  res.send(backuplink)
             });
 
         })

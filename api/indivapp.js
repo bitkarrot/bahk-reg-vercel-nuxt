@@ -32,7 +32,8 @@ router.post("/api/indivapp", async(req, res) => {
                 }
             ).catch(function(error) {
                 console.log('axios error, send backuplink ', error)
-                res.send(backuplink)
+                return res.status(500).send("Server error");
+                //                res.send(backuplink)
             });
 
         })

@@ -15,6 +15,14 @@
                <b-img fluid src="https://www.bitcoin.org.hk/images/bahk-logo-big-white.svg" alt="Bitcoin HK" class="img" />
                </a>
               <h2>Corporate Membership Application</h2></center>
+              
+              <p>
+                To sign up, simply fill out the application form below.
+                The corporate membership fee for 2021 is set at <b>0.0026 BTC</b>
+                and will be revised once per year.  We will send you an email 
+                with a confirmation usually within 48h. If you have questions, 
+                please drop us an email: info[at]bitcoin.org.hk
+                </p>
           </b-container>
 
           <b-form v-if="show" @submit="onSubmit" @reset="onReset">
@@ -99,6 +107,9 @@
                 placeholder="Enter a url, http://..."
               />
             </b-form-group>
+
+            <p> <b> Clicking on Submit will send you to a BTCPay Payment Request Page.</b></p>
+            
             <input type="hidden" name="type" value="organization">
             <b-button type="submit" variant="primary">
               Submit

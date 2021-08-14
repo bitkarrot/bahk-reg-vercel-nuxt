@@ -32,8 +32,8 @@ router.post("/api/indivapp", async(req, res) => {
                 }
             ).catch(function(error) {
                 console.log('axios error, send backuplink ', error)
-                return res.status(500).send("Server error");
-                //                res.send(backuplink)
+                res.send("Server error. Contact the admin at info[at]bitcoin.org.hk");
+                // res.send(backuplink)
             });
 
         })

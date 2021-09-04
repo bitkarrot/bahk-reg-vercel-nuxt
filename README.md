@@ -1,4 +1,10 @@
-# Vercel example
+# BAHK registration to btcpay
+
+Web registration forms that push data to Btcpay instance. 
+
+hosted on Vercel. 
+
+# Vercel 
 
 ## Development
 

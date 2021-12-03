@@ -4,6 +4,10 @@ Web registration forms that push data to Btcpay instance.
 
 hosted on Vercel. 
 
+# TODO 
+- add expiry to payload.js in format "expiryDate": 1592312018
+-
+
 # Vercel 
 
 ## Development
